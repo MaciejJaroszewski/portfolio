@@ -1,0 +1,34 @@
+@keyframes enter-left {
+  0% {
+    transform: translateX(-300%); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes enter-top {
+  0% {
+    transform: translateY(-300%); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes enter-bottom-right {
+  0% {
+    transform: translate(200%, 90%); }
+  100% {
+    transform: translate(0, 0); } }
+
+@keyframes rotate-background {
+  0% {
+    transform: rotate(0deg);
+    border-radius: 50%; }
+  50% {
+    transform: rotate(360deg);
+    border-radius: 40%; }
+  100% {
+    transform: rotate(765deg);
+    border-radius: 0; } }
+
+@keyframes arrow-animation {
+  0% {
+    opacity: 100%; }
+  100% {
+    opacity: 0; } }

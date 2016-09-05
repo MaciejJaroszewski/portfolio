@@ -1,0 +1,235 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+main {
+  width: 100%;
+  max-width: 1200px; }
+
+.col.s1 {
+  padding: 15px;
+  float: left;
+  width: 8.33%; }
+
+.col.s2 {
+  padding: 15px;
+  float: left;
+  width: 16.66%; }
+
+.col.s3 {
+  padding: 15px;
+  float: left;
+  width: 25%; }
+
+.col.s4 {
+  padding: 15px;
+  float: left;
+  width: 33.33%; }
+
+.col.s5 {
+  padding: 15px;
+  float: left;
+  width: 41.66%; }
+
+.col.s6 {
+  padding: 15px;
+  float: left;
+  width: 50%; }
+
+.col.s7 {
+  padding: 15px;
+  float: left;
+  width: 58.33%; }
+
+.col.s8 {
+  padding: 15px;
+  float: left;
+  width: 66.66%; }
+
+.col.s9 {
+  padding: 15px;
+  float: left;
+  width: 75%; }
+
+.col.s10 {
+  padding: 15px;
+  float: left;
+  width: 83.33%; }
+
+.col.s11 {
+  padding: 15px;
+  float: left;
+  width: 91.66%; }
+
+.col.s12 {
+  padding: 15px;
+  float: left;
+  width: 100%; }
+
+@keyframes enter-left {
+  0% {
+    transform: translateX(-300%); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes enter-top {
+  0% {
+    transform: translateY(-300%); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes enter-bottom-right {
+  0% {
+    transform: translate(200%, 90%); }
+  100% {
+    transform: translate(0, 0); } }
+
+@keyframes rotate-background {
+  0% {
+    transform: rotate(0deg);
+    border-radius: 50%; }
+  50% {
+    transform: rotate(360deg);
+    border-radius: 40%; }
+  100% {
+    transform: rotate(765deg);
+    border-radius: 0; } }
+
+@keyframes arrow-animation {
+  0% {
+    opacity: 100%; }
+  100% {
+    opacity: 0; } }
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  min-height: 400px;
+  background-color: #fff; }
+
+.logo {
+  width: 200px;
+  margin: 0 auto 100px;
+  height: 200px;
+  position: relative; }
+  .logo .background-overlay {
+    background-color: #472147;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    border-radius: 50%;
+    overflow: hidden; }
+  .logo span {
+    display: block;
+    position: absolute;
+    color: #fff;
+    font-size: 54px;
+    text-transform: uppercase; }
+  .logo .m-letter {
+    top: 52px;
+    left: 53px;
+    font-weight: bold;
+    transform: translateY(-300%); }
+  .logo .j-letter {
+    top: 38px;
+    right: 54px;
+    font-size: 130px;
+    transform: translate(200%, 90%); }
+  .logo .line {
+    height: 2px;
+    width: 100px;
+    background-color: white;
+    position: absolute;
+    top: 120px;
+    left: 15px;
+    transform: translateX(-300%); }
+
+.arrows i {
+  font-size: 48px;
+  display: block;
+  height: 20px; }
+
+.title, .arrows, .subtitle {
+  text-align: center;
+  z-index: 999;
+  font-size: 28px;
+  color: #472147;
+  display: block; }
+
+.subtitle {
+  margin-bottom: 20px; }
+
+.arrow-1 {
+  animation: arrow-animation 1200ms infinite 100ms; }
+
+.arrow-2 {
+  animation: arrow-animation 1200ms infinite 200ms; }
+
+.arrow-3 {
+  animation: arrow-animation 1200ms infinite 300ms; }
+
+.line-anim {
+  animation: enter-left 2s ease-in-out 1s forwards; }
+
+.j-anim {
+  animation: enter-bottom-right 2s ease-in-out 1s forwards; }
+
+.m-anim {
+  animation: enter-top 2s ease-in-out 1s forwards; }
+
+.rotate-anim {
+  animation: rotate-background 1s linear forwards; }
+
+body {
+  font-family: 'Lato', sans-serif; }
+
+main {
+  display: none; }

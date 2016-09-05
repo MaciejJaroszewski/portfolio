@@ -1,1 +1,19 @@
 @import 'reset';
+@import 'grid';
+@import 'variables';
+@import 'animations';
+@import 'landing-page-style';
+
+
+// ---------------------------------------------
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+// ---------------------
+// main content
+// ---------------------
+
+main {
+	display: none;
+}

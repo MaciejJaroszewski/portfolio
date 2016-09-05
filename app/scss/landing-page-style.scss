@@ -1,0 +1,107 @@
+// landing page animation variables
+// -----------------------
+$rotate-animation-duration: 1s;
+$letter-animation-delay: $rotate-animation-duration;
+// ----------------------
+
+
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  min-height: 400px;
+  background-color: #fff;
+}
+.logo {
+  width: 200px;
+  margin: 0 auto 100px;
+  height: 200px;
+  position: relative;
+  .background-overlay {
+    background-color: #472147;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  span {
+    display: block;
+    position: absolute;
+    color: #fff;
+    font-size: 54px;
+    text-transform: uppercase;
+   
+  }
+  .m-letter {
+    top: 52px;
+    left: 53px;
+    font-weight: bold;
+    transform: translateY(-300%);
+  }
+  .j-letter {
+    top: 38px;
+    right: 54px;
+    font-size: 130px;
+    transform: translate(200%, 90%);
+  }
+  .line {
+    height: 2px;
+    width: 100px;
+    background-color: white;
+    position: absolute;
+    top: 120px;
+    left: 15px;
+    transform: translateX(-300%);
+  }
+}
+
+
+
+// --------------------
+// content below a dot
+// --------------------
+.arrows {
+  @extend .title;
+  i { 
+    font-size: 48px;
+    display: block;
+    height: 20px;
+  }
+}
+.title {
+  text-align: center;
+  z-index: 999;
+  font-size: 28px;
+  color: #472147;
+  display: block;
+}
+.subtitle {
+  @extend .title;
+  margin-bottom: 20px;
+}
+
+@for $i from 1 through 3 {
+  .arrow-#{$i} {
+    animation: arrow-animation 1200ms infinite #{$i*100}ms
+  }
+}
+// ----------------------
+// classes for animations landing page
+// ----------------------
+.line-anim {
+  animation: enter-left 2s ease-in-out $letter-animation-delay forwards;
+}
+.j-anim {
+  animation: enter-bottom-right 2s ease-in-out $letter-animation-delay forwards;
+}
+.m-anim {
+  animation: enter-top 2s ease-in-out $letter-animation-delay forwards;
+}
+.rotate-anim {
+  animation: rotate-background $rotate-animation-duration linear forwards;
+}
+
+// ----------------
