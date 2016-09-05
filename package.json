@@ -20,5 +20,10 @@
     "front-end"
   ],
   "author": "Maciej Jaroszewski",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.14.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
 }
