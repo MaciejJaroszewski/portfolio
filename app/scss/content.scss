@@ -1,0 +1,273 @@
+// -----------------------------------------------------------------|
+//                   variables                                      |
+// -----------------------------------------------------------------|
+
+$accent-color: #472147;
+
+//  --------------    menu   ---------------------------------------|
+$menu-bg-color: #472147;
+$menu-border-color: darken($menu-bg-color, 15%);
+$menu-line-color: #fff;
+$menu-button-size: 52px;
+$menu-line-height: 8px;
+$menu-line-width: $menu-button-size*0.8;
+$menu-line-position-left: (($menu-button-size - $menu-line-width)/2);
+$menu-line-position-top: ($menu-button-size - $menu-line-height*3)/4;
+// -----------------------------------------------------------------|
+
+// -----------------   circles -------------------------------------|
+$circle-count: 120;
+// -----------------------------------------------------------------|
+
+// ----------
+nav {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	transform: translateY(-100%);
+	.menu-element {
+		float: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		flex-direction: column;
+		box-sizing: border-box;
+		width: 25vw;
+		height: 100vh;
+		background-color:gray;
+		border: 1px solid white;
+		transition: 500ms cubic-bezier(.15,-0.1,.86,1.1);
+		@for $i from 1 through 4 {
+			&:nth-child(#{$i}){
+				transition-delay: 50ms*$i;
+			}
+		}
+		i {
+			color: white;
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+		span {
+			color: white;
+			font-size: 1.7rem;
+		}
+		&.active {
+			transform: translateY(100%);
+		}
+	}
+}
+
+
+// ----------
+main {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	box-sizing: border-box;
+	// small logo
+	.logo-animated {
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		width: 65px;
+		height: 65px;
+		margin-left: -33px;
+		z-index: 999;
+		.background-overlay {
+			background-color: #472147;
+			width: 65px;
+			height: 65px;
+			transform: rotate(45deg);
+		}
+		span {
+			text-transform: uppercase;
+			color: white;
+			display: block;
+		}
+		.m-letter {
+			position: absolute;
+			top: 16.9px;
+			left: 17.225px;
+			font-size: 17.55px;
+			font-weight: bold;
+		}
+		.j-letter {
+			position: absolute;
+			top: 12.35px;
+			right: 17.55px;
+			font-size: 42.25px;
+		}
+		.line {
+			height: 2px;
+			width: 32.5px;
+			background-color: white;
+			position: absolute;
+			top: 39px;
+			left: 4.875px;
+		}
+	}
+	// -------
+
+	.navigation {
+		z-index: 999;
+		height: 100px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		.page-title-indented {
+			text-indent: -999em;
+		}
+		.menu-div {
+			position: relative;
+			left: 25px;
+			top: 20px;
+			width: $menu-button-size;
+			height: $menu-button-size;
+			background-color: $menu-bg-color;
+			border: 1px solid $menu-border-color;
+			box-shadow: 0px 0px 3px 0px $menu-border-color;
+			border-radius: 0.5em;
+			overflow: hidden;
+			cursor: pointer;
+			.menu-line {
+				width: $menu-line-width;;
+				position: absolute;
+				height: $menu-line-height;
+				left: $menu-line-position-left;
+				background-color: $menu-line-color;
+				border-radius: 0.5em;
+			}
+			%transform-line-1 {
+			  transform: rotate(45deg);
+			}
+			%transform-line-2 {
+			  transform: rotate(-45deg);
+			}
+			%transform-line-3 {
+			  transform: translateY($menu-button-size);
+			}
+
+			@for $i from 1 through 3 {
+			  .line-#{$i}{
+			    top: #{($menu-line-height*(($i)-1))+$menu-line-position-top*$i};
+			    transition: 400ms ease;
+			  }
+			  .menu-active.line-#{$i}{
+			    @extend %transform-line-#{$i};
+			    top: #{$menu-button-size/2-$menu-line-height/2};
+			  }
+			}
+		}
+	}
+
+	.main-content-home {
+		height: 100%;
+		width: 100%;
+		padding-top: 100px;
+		// display: flex;
+		// justify-content: center;
+		.animated-circles {
+			margin: 6vh auto 0;
+			position: relative;
+			height: 60vh;
+			width: 60vh;
+			overflow: hidden;
+			.circles-container, .circle {
+				margin: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
+			.circles-container {
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.circle {
+			  background: rgba(255,255,255,0.05);
+			  border-style: solid;
+			  border-color: transparent;
+			  width: 130px;
+			  height: 130px;
+			  border-width: 10px;
+			  border-color: transparent;
+			  border-radius: 100%;
+			  transition: 200ms ease;
+			}
+
+			@for $i from 1 through $circle-count {
+			  @keyframes rotation-circle-#{$i} {
+			    from {transform:rotateZ(#{$i+'deg'}) rotateY(#{$i+'deg'}) rotateX(0);}
+			    to {transform:rotateZ(#{$i+'deg'}) rotateY(#{$i+'deg'}) rotateX(360deg);}
+			  }
+			}
+
+
+			@for $i from 1 through $circle-count {
+			  .circle-#{$i} {
+			    animation: rotation-circle-#{$i} 2s infinite linear;
+			  }
+			}
+		}
+		.title {
+			text-align: center;
+			font-size: 28px;
+			color: $accent-color;
+			margin-top: 2em;
+		}
+	}
+	.main-content-about-me {
+		height: 100%;
+		width: 100%;
+		display: none;
+	}
+
+
+	.slide-reload {
+		background-color: black;
+		width: 50vw;
+		height: 100vh;
+		transition: 200ms linear;
+		&.slide-reload-left {
+			position: fixed;
+			top: 0;
+			transform: translateX(-100%);
+			&:after {
+				position: absolute;
+				right: 0;
+				top: 7px;
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-top: 46px solid transparent;
+				border-right: 46px solid white;
+				border-bottom: 46px solid transparent;
+			}
+		}
+		&.slide-reload-right {
+			position: fixed;
+			top: 0;
+			right: 0;
+			transform: translateX(100%);
+			&:after {
+				position: absolute;
+				left: 0;
+				top: 6px;
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-top: 46px solid transparent;
+				border-left: 46px solid white;
+				border-bottom: 46px solid transparent;
+			}
+		}
+	}
+}

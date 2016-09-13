@@ -5,66 +5,65 @@
   height: 100vh;
   min-height: 400px;
   background-color: #fff; }
+  .landing-page .logo {
+    width: 200px;
+    margin: 0 auto 100px;
+    height: 200px;
+    position: relative; }
+    .landing-page .logo .background-overlay {
+      background-color: #472147;
+      width: 100%;
+      height: 100%;
+      transform: rotate(45deg);
+      border-radius: 50%;
+      overflow: hidden; }
+    .landing-page .logo span {
+      display: block;
+      position: absolute;
+      color: #fff;
+      font-size: 54px;
+      text-transform: uppercase; }
+    .landing-page .logo .m-letter {
+      top: 52px;
+      left: 53px;
+      font-weight: bold;
+      transform: translateY(-300%); }
+    .landing-page .logo .j-letter {
+      top: 38px;
+      right: 54px;
+      font-size: 130px;
+      transform: translate(200%, 90%); }
+    .landing-page .logo .line {
+      height: 2px;
+      width: 100px;
+      background-color: white;
+      position: absolute;
+      top: 120px;
+      left: 15px;
+      transform: translateX(-300%); }
 
-.logo {
-  width: 200px;
-  margin: 0 auto 100px;
-  height: 200px;
-  position: relative; }
-  .logo .background-overlay {
-    background-color: #472147;
-    width: 100%;
-    height: 100%;
-    transform: rotate(45deg);
-    border-radius: 50%;
-    overflow: hidden; }
-  .logo span {
-    display: block;
-    position: absolute;
-    color: #fff;
-    font-size: 54px;
-    text-transform: uppercase; }
-  .logo .m-letter {
-    top: 52px;
-    left: 53px;
-    font-weight: bold;
-    transform: translateY(-300%); }
-  .logo .j-letter {
-    top: 38px;
-    right: 54px;
-    font-size: 130px;
-    transform: translate(200%, 90%); }
-  .logo .line {
-    height: 2px;
-    width: 100px;
-    background-color: white;
-    position: absolute;
-    top: 120px;
-    left: 15px;
-    transform: translateX(-300%); }
-
-.arrows i {
+.landing-page .arrows i {
   font-size: 48px;
   display: block;
   height: 20px; }
 
-.title, .arrows, .subtitle {
+.landing-page .title, .landing-page .arrows, .landing-page .subtitle {
   text-align: center;
   z-index: 999;
   font-size: 28px;
   color: #472147;
   display: block; }
 
-.subtitle {
+.landing-page .subtitle {
   margin-bottom: 20px; }
 
-.arrow-1 {
+.landing-page .arrow-1 {
   animation: arrow-animation 1200ms infinite 100ms; }
 
-.arrow-2 {
+.landing-page .arrow-2 {
   animation: arrow-animation 1200ms infinite 200ms; }
 
-.arrow-3 {
+.landing-page .arrow-3 {
   animation: arrow-animation 1200ms infinite 300ms; }
 
 .line-anim {
