@@ -1,31 +1,104 @@
 $(document).ready(function(){
 	
+	// --------------------------------------|
+
+	var menuElements = $('.menu-element');
+	var slideReload = $('.slide-reload');
+	var slideReloadLeft = $('.slide-reload-left');
+	var slideReloadRight = $('.slide-reload-right');
+	var menuLines = $('.menu-line');
+	var animatedCircles = $('.animated-circles');
+	var reloadSmallCircle = $('.reload-circle');
+
+
+	//   -------------------------------------
+	//              functions                |
+	//   -------------------------------------
+
+	function showHideMenu(){
+		menuElements.toggleClass('active');
+	}
+	function showMenu(){
+		if(menuElements.hasClass('active')){
+			return;
+		} else {
+			menuElements.addClass('active');
+		}
+	}
+	function hideMenu(){
+		if(menuElements.hasClass('active')){
+			menuElements.removeClass('active');
+		} else {
+			return;
+		}
+	}
+	function transformMenuLines(){
+		menuLines.toggleClass('menu-active');
+	}
+	function showContent(content){
+		content.css('transform', 'translate(0,0)');
+	}
+	function hideContent(content){
+		content.hide();
+	}
+	function reloadContent(time){
+		slideReload.css({
+			transform:'translateX(0)',
+			transitionDelay: '400ms',
+			transitionDuration: '300ms'
+		});
+		reloadSmallCircle.delay(400).fadeIn();
+		setTimeout(function(){
+			slideReload.css({
+				transform:'',
+				transitionDelay: 0,
+				transitionDuration: '400ms'
+			});
+			reloadSmallCircle.delay(200).fadeOut();
+		}, time);
+	}
+
+	// --------------------------------------------|
+	// --------------------------------------------|
+
+	
+	// temporary turn off the landing page animation
+	$('.landing-page').hide();
+	$('main').show();
+
 	// landing page animations
-	$('.logo').click(function(){
-		$('.arrows, .subtitle').hide();
-		$('.logo .background-overlay').addClass('rotate-anim');
-		$('.logo .m-letter').addClass('m-anim');
-		$('.logo .j-letter').addClass('j-anim');
-		$('.logo .line').addClass('line-anim');
-		$('.landing-page').delay(4500).fadeOut();
-		$('main').delay(5000).fadeIn();
-	});
+	// $('.logo').click(function(){
+	// 	$('.arrows, .subtitle').hide();
+	// 	$('.logo .background-overlay').addClass('rotate-anim');
+	// 	$('.logo .m-letter').addClass('m-anim');
+	// 	$('.logo .j-letter').addClass('j-anim');
+	// 	$('.logo .line').addClass('line-anim');
+	// 	$('.landing-page').delay(4500).fadeOut();
+	// 	$('main').delay(5000).fadeIn();
+	// });
 	// --------
 
 
 	// menu button transition
 	$('.menu-div').click(function(){
-		$('.menu-line').toggleClass('menu-active');
+		transformMenuLines();
 	});
-	// menu button actions
+	// menu button actions - sliding menu down/up
 	$('.menu-div').click(function(){
-		$('.menu-element').toggleClass('active');
+		showHideMenu();
 	});
+
+	menuElements.click(function(){
+		hideMenu();
+		transformMenuLines();
+		reloadContent(1600);
+	});
+
+
 
 	// animated circles
 	var borders = ["border-top-color","border-right-color","border-bottom-color","border-left-color"];
 	var directions = ["normal","reverse"];
-	var angles = ["rotateX","rotateZ"];
 
 	function randomColor(){
   		var color = "#";
@@ -33,11 +106,6 @@ $(document).ready(function(){
 		return color;
 	}
 
-	function randomAngleType(){
-		var angleType = angles[Math.floor(Math.random()*angles.length)];
-		console.log(angleType);
-		return angleType;
-	}
 	function randomAngle(){
 		var rotateAngle = Math.floor(Math.random()*360);
 		return rotateAngle+"deg";

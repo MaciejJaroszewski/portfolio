@@ -153,6 +153,12 @@ table {
   100% {
     opacity: 0; } }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -202,7 +208,7 @@ table {
   display: block;
   height: 20px; }
 
-.landing-page .title, .landing-page .arrows, .landing-page .subtitle {
+.landing-page .title, .landing-page .arrows, .landing-page .subtitle, .landing-page main .main-content-home h3, main .main-content-home .landing-page h3 {
   text-align: center;
   z-index: 999;
   font-size: 28px;
@@ -252,7 +258,8 @@ nav {
     height: 100vh;
     background-color: gray;
     border: 1px solid white;
-    transition: 500ms cubic-bezier(0.15, -0.1, 0.86, 1.1); }
+    transition: 500ms cubic-bezier(0.15, -0.1, 0.86, 1.1);
+    cursor: pointer; }
     nav .menu-element:nth-child(1) {
       transition-delay: 50ms; }
     nav .menu-element:nth-child(2) {
@@ -284,7 +291,7 @@ main {
     width: 65px;
     height: 65px;
     margin-left: -33px;
-    z-index: 999; }
+    z-index: 9999; }
     main .logo-animated .background-overlay {
       background-color: #472147;
       width: 65px;
@@ -370,7 +377,8 @@ main {
       position: relative;
       height: 60vh;
       width: 60vh;
-      overflow: hidden; }
+      overflow: hidden;
+      transition: 400ms linear; }
       main .main-content-home .animated-circles .circles-container, main .main-content-home .animated-circles .circle {
         margin: auto;
         position: absolute;
@@ -1351,11 +1359,14 @@ main {
         animation: rotation-circle-119 2s infinite linear; }
       main .main-content-home .animated-circles .circle-120 {
         animation: rotation-circle-120 2s infinite linear; }
-    main .main-content-home .title, main .main-content-home .landing-page .arrows, .landing-page main .main-content-home .arrows, main .main-content-home .landing-page .subtitle, .landing-page main .main-content-home .subtitle {
+    main .main-content-home .title, main .main-content-home .landing-page .arrows, .landing-page main .main-content-home .arrows, main .main-content-home .landing-page .subtitle, .landing-page main .main-content-home .subtitle, main .main-content-home h3 {
       text-align: center;
       font-size: 28px;
       color: #472147;
       margin-top: 2em; }
+    main .main-content-home h3 {
+      font-size: 20px;
+      margin-top: 0.5em; }
   main .main-content-about-me {
     height: 100%;
     width: 100%;
@@ -1364,7 +1375,8 @@ main {
     background-color: black;
     width: 50vw;
     height: 100vh;
-    transition: 200ms linear; }
+    transition: 200ms linear;
+    z-index: 1000; }
     main .slide-reload.slide-reload-left {
       position: fixed;
       top: 0;
@@ -1396,6 +1408,21 @@ main {
         border-top: 46px solid transparent;
         border-left: 46px solid white;
         border-bottom: 46px solid transparent; }
+  main .reload-circle {
+    position: absolute;
+    border: 5px solid #7b397b;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    animation: rotate 600ms cubic-bezier(0, 0.6, 1, 0.6) infinite forwards;
+    display: none;
+    z-index: 1001; }
 
 body {
   font-family: 'Lato', sans-serif; }
