@@ -1,6 +1,22 @@
 // -----------------------------------------------------------------|
 //                   variables                                      |
 // -----------------------------------------------------------------|
+//-----------------------|
+//   grid                |
+// ----------------------|
+
+// breakpoints
+$small-media: 600px;
+$medium-media: 992px;
+$large-media: 1200px;
+
+// media queries
+$phone: "max-width: $small-media";
+$tablet: "min-width: $medium-media";
+$desktop: "min-width: $large-media";
+
+
+// -----------------------------------------------------------------|
 
 $accent-color: #472147;
 
@@ -35,8 +51,12 @@ nav {
 		align-content: center;
 		flex-direction: column;
 		box-sizing: border-box;
-		width: 25vw;
-		height: 100vh;
+		width: 50vw;
+		height: 50vh;
+		@media ($tablet) {
+			width: 25vw;
+			height: 100vh;
+		}
 		background-color:gray;
 		border: 1px solid white;
 		transition: 500ms cubic-bezier(.15,-0.1,.86,1.1);
@@ -56,11 +76,13 @@ nav {
 			font-size: 1.7rem;
 		}
 		&.active {
-			transform: translateY(100%);
+			transform: translateY(200%);
+			@media ($tablet){
+				transform: translateY(100%);
+			}
 		}
 	}
 }
-
 
 // ----------
 main {
@@ -173,12 +195,17 @@ main {
 		// display: flex;
 		// justify-content: center;
 		.animated-circles {
-			margin: 6vh auto 0;
+			margin: 0 auto 0;
 			position: relative;
 			height: 60vh;
 			width: 60vh;
 			overflow: hidden;
 			transition: 400ms linear;
+			@media($tablet){
+				height: 60vh;
+				width: 60vh;
+				margin: 2vh auto 0;
+			}
 			.circles-container, .circle {
 				margin: auto;
 				position: absolute;
@@ -221,7 +248,7 @@ main {
 			text-align: center;
 			font-size: 28px;
 			color: $accent-color;
-			margin-top: 2em;
+			margin-top: 1em;
 		}
 		h3 {
 			@extend .title;

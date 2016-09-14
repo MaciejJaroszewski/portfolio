@@ -45,79 +45,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-* {
-  box-sizing: border-box; }
-
-.container {
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto; }
-
-.row::after {
-  content: "";
-  clear: both;
-  display: block; }
-
-.col.s1 {
-  padding: 15px;
-  float: left;
-  width: 8.33%; }
-
-.col.s2 {
-  padding: 15px;
-  float: left;
-  width: 16.66%; }
-
-.col.s3 {
-  padding: 15px;
-  float: left;
-  width: 25%; }
-
-.col.s4 {
-  padding: 15px;
-  float: left;
-  width: 33.33%; }
-
-.col.s5 {
-  padding: 15px;
-  float: left;
-  width: 41.66%; }
-
-.col.s6 {
-  padding: 15px;
-  float: left;
-  width: 50%; }
-
-.col.s7 {
-  padding: 15px;
-  float: left;
-  width: 58.33%; }
-
-.col.s8 {
-  padding: 15px;
-  float: left;
-  width: 66.66%; }
-
-.col.s9 {
-  padding: 15px;
-  float: left;
-  width: 75%; }
-
-.col.s10 {
-  padding: 15px;
-  float: left;
-  width: 83.33%; }
-
-.col.s11 {
-  padding: 15px;
-  float: left;
-  width: 91.66%; }
-
-.col.s12 {
-  padding: 15px;
-  float: left;
-  width: 100%; }
-
 @keyframes enter-left {
   0% {
     transform: translateX(-300%); }
@@ -254,12 +181,16 @@ nav {
     align-content: center;
     flex-direction: column;
     box-sizing: border-box;
-    width: 25vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
     background-color: gray;
     border: 1px solid white;
     transition: 500ms cubic-bezier(0.15, -0.1, 0.86, 1.1);
     cursor: pointer; }
+    @media (min-width: 992px) {
+      nav .menu-element {
+        width: 25vw;
+        height: 100vh; } }
     nav .menu-element:nth-child(1) {
       transition-delay: 50ms; }
     nav .menu-element:nth-child(2) {
@@ -276,7 +207,10 @@ nav {
       color: white;
       font-size: 1.7rem; }
     nav .menu-element.active {
-      transform: translateY(100%); }
+      transform: translateY(200%); }
+      @media (min-width: 992px) {
+        nav .menu-element.active {
+          transform: translateY(100%); } }
 
 main {
   width: 100vw;
@@ -373,12 +307,17 @@ main {
     width: 100%;
     padding-top: 100px; }
     main .main-content-home .animated-circles {
-      margin: 6vh auto 0;
+      margin: 0 auto 0;
       position: relative;
       height: 60vh;
       width: 60vh;
       overflow: hidden;
       transition: 400ms linear; }
+      @media (min-width: 992px) {
+        main .main-content-home .animated-circles {
+          height: 60vh;
+          width: 60vh;
+          margin: 2vh auto 0; } }
       main .main-content-home .animated-circles .circles-container, main .main-content-home .animated-circles .circle {
         margin: auto;
         position: absolute;
@@ -1363,7 +1302,7 @@ main {
       text-align: center;
       font-size: 28px;
       color: #472147;
-      margin-top: 2em; }
+      margin-top: 1em; }
     main .main-content-home h3 {
       font-size: 20px;
       margin-top: 0.5em; }
