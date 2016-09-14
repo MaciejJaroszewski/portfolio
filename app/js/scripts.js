@@ -65,6 +65,7 @@ $(document).ready(function(){
 	// temporary turn off the landing page animation
 	$('.landing-page').hide();
 	$('main').show();
+	
 
 	// landing page animations
 	// $('.logo').click(function(){
@@ -145,5 +146,10 @@ $(document).ready(function(){
 		}
 	}
 	generateCircles();
+
+
+
+	// temporary turn off circles animation
+	$('.animated-circles .circle').css('animation-play-state', 'paused');
 
 });
