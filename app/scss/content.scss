@@ -21,9 +21,9 @@ $desktop: "min-width: $large-media";
 $accent-color: #472147;
 
 //  --------------    menu   ---------------------------------------|
-$menu-bg-color: #472147;
-$menu-border-color: darken($menu-bg-color, 15%);
-$menu-line-color: #fff;
+$menu-bg-color: transparent;
+$menu-border-color: transparent;
+$menu-line-color: $accent-color;
 $menu-button-size: 52px;
 $menu-line-height: 8px;
 $menu-line-width: $menu-button-size*0.8;
@@ -57,7 +57,7 @@ nav {
 			width: 25vw;
 			height: 100vh;
 		}
-		background-color:gray;
+		background-color: $accent-color;
 		border: 1px solid white;
 		transition: 500ms cubic-bezier(.15,-0.1,.86,1.1);
 		cursor: pointer;
@@ -105,11 +105,13 @@ main {
 			width: 65px;
 			height: 65px;
 			transform: rotate(45deg);
+			transition: 400ms linear 200ms;
 		}
 		span {
 			text-transform: uppercase;
 			color: white;
 			display: block;
+			transition: 300ms linear 100ms;
 		}
 		.m-letter {
 			position: absolute;
@@ -132,6 +134,17 @@ main {
 			top: 39px;
 			left: 4.875px;
 		}
+		&.active-menu-logo {
+			.background-overlay {
+				background-color: #fff;
+			}
+			span {
+				color: $accent-color;
+			}
+			.line {
+				background-color: $accent-color;
+			}
+		}
 	}
 	// -------
 
@@ -153,7 +166,7 @@ main {
 			height: $menu-button-size;
 			background-color: $menu-bg-color;
 			border: 1px solid $menu-border-color;
-			box-shadow: 0px 0px 3px 0px $menu-border-color;
+			// box-shadow: 0px 0px 3px 0px $menu-border-color;
 			border-radius: 0.5em;
 			overflow: hidden;
 			cursor: pointer;
@@ -183,7 +196,11 @@ main {
 			  .menu-active.line-#{$i}{
 			    @extend %transform-line-#{$i};
 			    top: #{$menu-button-size/2-$menu-line-height/2};
+			    background-color: #fff;
 			  }
+			}
+			.menu-active {
+				background-color: $accent-color;
 			}
 		}
 	}
@@ -256,11 +273,37 @@ main {
 			margin-top: 0.5em;
 		}
 	}
-	.main-content-about-me {
+	#about-me {
 		height: 100%;
-		width: 100%;
+		width: 100vw;
 		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		// background-image: url('../img/bg-stars.jpg');
+		// opacity: 0.7;
+		// z-index: 1;
+		// background-repeat: no-repeat;
+		// background-size: cover;
+		padding-top: 100px;
+		.main-content-about-me {
+			margin: 3% auto;
+			width: 80%;
+			opacity: 1;
+			z-index: 2;
+			height: 75%;
+			border-radius: 0.7em;
+			border: 1px solid lightgray;
+			// box-shadow: 2px 2px 3px 0 gray;
+		}
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			text-align: center;
+			padding: 20px;
+		}
 	}
+	
 
 
 	.slide-reload {

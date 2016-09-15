@@ -9,6 +9,7 @@ $(document).ready(function(){
 	var menuLines = $('.menu-line');
 	var animatedCircles = $('.animated-circles');
 	var reloadSmallCircle = $('.reload-circle');
+	var smallLogo = $('.logo-animated');
 
 
 	//   -------------------------------------
@@ -17,6 +18,8 @@ $(document).ready(function(){
 
 	function showHideMenu(){
 		menuElements.toggleClass('active');
+		smallLogo.toggleClass('active-menu-logo');
+
 	}
 	function showMenu(){
 		if(menuElements.hasClass('active')){
@@ -26,8 +29,9 @@ $(document).ready(function(){
 		}
 	}
 	function hideMenu(){
-		if(menuElements.hasClass('active')){
+		if(menuElements.hasClass('active') && smallLogo.hasClass('active-menu-logo')){
 			menuElements.removeClass('active');
+			smallLogo.removeClass('active-menu-logo');
 		} else {
 			return;
 		}
@@ -62,7 +66,7 @@ $(document).ready(function(){
 	// --------------------------------------------|
 
 	
-	// temporary turn off the landing page animation
+	// temporary turn off the landing page animation ant turn on home page
 	$('.landing-page').hide();
 	$('main').show();
 	
@@ -149,7 +153,10 @@ $(document).ready(function(){
 
 
 
-	// temporary turn off circles animation
+	// temporary turn off circles animation and hide home page
 	$('.animated-circles .circle').css('animation-play-state', 'paused');
+	$('#home').hide();
+	// turn on about me page
+	$('#about-me').show();
 
 });
